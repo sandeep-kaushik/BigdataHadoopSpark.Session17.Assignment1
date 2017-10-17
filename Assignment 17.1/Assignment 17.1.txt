@@ -1,0 +1,38 @@
+						Assignment 17.1
+
+------------------------------------------------------------------------
+
+
+task1------(Write a program to read a text file and print the number of rows of data in the document.)
+
+val file1 = sc.textFile("/home/acadgild/Desktop/test.txt");
+file1.count();
+
+
+
+------------------------------------------------------------------------
+
+
+
+task2-------(Write a program to read a text file and print the number of words in the document.)
+
+
+val word_count = file1.flatMap(x=>x.split(" ")).map(x=>(x,1)).count();
+
+
+
+ 
+-------------------------------------------------------------------------
+
+
+
+
+task3--------(We have a document where the word separator is -, instead of space. Write a spark
+              code, to obtain the count of the total number of words present in the document.)
+
+
+
+val smplFile_wrdCnt = sc.textFile("/home/acadgild/Desktop/sample.txt").flatMap(x=>x.split("-")).map(x=>(x,1)).count();
+
+
+--------------------------------------------------------------------------
